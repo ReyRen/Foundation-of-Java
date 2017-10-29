@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--<?xml-stylesheet type="text/css" href="contact.css"?>&lt;!&ndash;提取内容的控制器&ndash;&gt;-->
+<contactList>
+    <contact id="001">
+        <name>张三</name>
+        <age>20</age>
+        <phone>12321312321312</phone>
+        <email>zhangsan@qq.com</email>
+        <qq>234234234</qq>
+    </contact>
+    <contact id="002">
+        <name>lisi</name>
+        <age>20</age>
+        <phone>12321312321312</phone>
+        <email>lisi@qq.com</email>
+        <qq>234234234</qq>
+    </contact>
+</contactList>
+<!--
+xml解析方式：
+    1.DOM解析
+        1).JAXP(oracle公司提供的工具)
+        2).JDOM(非官方的)
+        3).Dom4J(非官方，这是三大框架默认读取xml的工具)
+    2.SAX解析
+        1).Sax解析工具（oracle公司提供的）
+
+DOM:
+    xml解析器，把xml文件的各个部分内容封装成对象，通过这些对象操作xml文档，这种做法叫做DOM解析
+        节点信息   Node对象
+        标签节点   Element对象
+        属性节点   Attribute
+        文本节点   Text
+
+        Dom解析成一个document对象，代表一个完整的xml文档
+            通过Document对象可以得到其下面的其他节点的对象，通过节点对象访问xml文档的内容
+
+    XML解析器一次性的把整个xml文档加载进内存，然后再内存中构建一颗document的对象树，我们可以通过document对象树，得到树上的节点对象，通过节点对象访问xml文档内容
+
+Dom4j:
+    导入核心包
+
+
+-->

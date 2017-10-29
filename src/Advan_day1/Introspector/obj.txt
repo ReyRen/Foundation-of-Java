@@ -1,0 +1,3 @@
+Advan_day1.Introspector.Person
+id=110
+name=狗娃

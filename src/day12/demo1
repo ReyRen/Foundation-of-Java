@@ -1,0 +1,66 @@
+package day12;
+
+
+/**
+ * Created by reyren on 2016/12/20.
+ */
+/*Object类是所类的终极父类，所有类都继承了Object类
+
+  Object常用的方法:
+    toString()  返回的是该对象字符串表示
+
+    equals(Object obj)  比较两个对象的内存地址，判断两个对象是否为同一个对象
+    hashCode()  返回的是对象的hash码（可以理解成是对象的内存地址）
+
+
+  java规范：一般重写一个类的equals方法一般都会重写hashCode方法
+*
+* */
+public class demo1 {
+    public static void main(String[] args) {
+        /*Object o = new Object();
+        System.out.println(o.toString());//完整的类名+@+对象的hash码值
+        System.out.println(o);//直接输出对象的时候，println直接给调用toString方法,查看源代码能看出来*/
+
+        /*Person p = new Person(110, "狗娃");
+        System.out.println(p);//return (obj == null) ? "null" : obj.toString();调用的是这个类的toString方法*/
+
+        Person p1 = new Person(110, "狗娃");
+        Person p2 = new Person(110, "陈大富");
+        //需求:只要两个人的身份证一致就是同一个人
+        System.out.println(p1.equals(p2));
+        System.out.println(p1.hashCode());
+        System.out.println(p2.hashCode());
+    }
+}
+
+class Person{
+    int id;
+    String name;
+
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Person() {
+    }
+    //目前我需要直接输出一个对象的时候输出的格式是编号:110 姓名:狗娃
+    //目前Object的toString 方法无法满足子类的需求，所以我们就需要对Object的toString重写
+
+    @Override
+    public String toString() {//因为调用的是类的toString方法，所以再这个类中改写toString即可
+        return "编号:" + this.id + "姓名:" + this.name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Person p = (Person)obj;//因为这个id是Person的特有属性，在多太中所以就要强制类型转才能用
+        return this.id == p.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id = id;
+    }
+}

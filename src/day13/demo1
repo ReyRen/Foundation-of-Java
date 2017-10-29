@@ -1,0 +1,59 @@
+package day13;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+/**
+ * Created by reyren on 2017/1/21.
+ */
+/*System类是一个系统类，主要用于获系统的属性数据
+常用方法：
+    arraycopy(Object src, int srcPos, Object dest. int destPos. int length)
+        src:源数组
+        srcPos:源数组中的启示位置
+        dest：目标数组
+        destPos：目标数组中的启示位置
+        length：要复制数组元素的数量
+    currentTimeMillis()获取当前的系统时间(是从1970.1.1到现在的毫秒数)
+    exit(int status)退出jvm  如果是0表示正常退出jvm, 非0表示异常退出
+    gc()建议jvm赶快启动垃圾回收器回收垃圾，并不能使马上启动
+    finalize()如果一个对象被垃圾回收器回收的时候，会先调用对象的finalize方法
+    getenv(String name)根据环境变量的名字获取环境变量
+    getProperties(Key)获取当前系统的所有属性
+*
+* */
+
+public class demo1 {
+    public static void main(String[] args) {
+        int[] srcArr = {10, 12, 14, 16, 19};
+        //将srcArr的数组元素copy到destArr中
+        int[] destArr = new int[4];
+        System.arraycopy(srcArr,2,destArr,1,2);
+        //System.exit(0);//0非0都能退出，对于用户而言没有任何区别，对操作系统有影响，非0表示一个应用程序的异常退出
+        System.out.println("目标数组的元素："+ Arrays.toString(destArr));
+        System.out.println("当前的系统时间为:" + System.currentTimeMillis());
+        /*for (int  i = 0; i < 4; i++){
+            new Person("狗娃" + i);
+            System.gc();//每有一个垃圾马上启动
+        }*/
+        System.out.println("环境变量:" + System.getenv("JAVA_HOME"));
+        /*Properties properties = System.getProperties();
+        properties.list(System.out);*/
+        String value = System.getProperty("os.name");//根据系统的属性名获取对应的属性
+        System.out.println("当前系统:" + value);
+    }
+}
+
+class Person{
+    String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println(this.name + "被回收了");
+    }
+}
