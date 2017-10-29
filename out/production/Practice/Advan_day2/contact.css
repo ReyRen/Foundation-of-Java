@@ -1,0 +1,9 @@
+contact{
+    color: #36ff5b;
+    font-size: 20px;
+    width: 100px;
+    height:100px;
+    display: block;/*以块儿装显示标签*/
+    margin-top:10px;/*块与块之间的距离*/
+    background-color: red;
+}

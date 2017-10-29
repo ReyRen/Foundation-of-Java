@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<codes>
+    <code>
+        &lt;p&gt;段落&lt;/p&gt;
+    </code>
+    <code>
+        <![CDATA[
+                <html>
+                    <head>
+                        head
+                    </head>
+                    <body>
+                        body
+                    </body>
+                </html>
+        ]]>
+    </code>
+</codes>
+<!--CDATA块可以直接对包含一些特殊字符的内容全部进行原样输出-->
